@@ -1,5 +1,5 @@
 // var gunanya untuk initialisasi tempat didalam ram
-var namaOrang = `dino`;
+let namaOrang = `dino`;
 // console.log("daniel");
 namaOrang = "rio";
 // console.log(namaOrang);
@@ -46,5 +46,22 @@ numb2= numb2 +''
 // console.log(Number(numb))
 // console.log(numb2)
 var x= 'Hello worlds'
-console.log(x.slice(5,8))
-console.log(x.split(' '))
+// console.log(x.slice(5,8))
+// console.log(x.split(' '))
+// let tes1 = 3
+// let tes = !(tes1 > 3)
+// let tes = tes1 > 3 
+// let tes = tes1 === 3 // === type data harus sama
+// let tes = tes1 == 3 // == type data boleh beda
+// ! itu pembalik misal dari true -> false , false-> true
+ 
+// and operator && 
+// let tes = false && false && false
+
+// or operator ||
+// let tes = true || false || false
+let tes = true && !false || false
+
+
+console.log(tes)
+
