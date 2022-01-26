@@ -1,67 +1,125 @@
-// var gunanya untuk initialisasi tempat didalam ram
-let namaOrang = `dino`;
-// console.log("daniel");
-namaOrang = "rio";
-// console.log(namaOrang);
-// numbers
-var usia = 25;
-// console.log(usia);
 
-// boolean (bisa true/false)
-var isLecturer = true 
-// console.log(isLecturer)
-var tipe = typeof(isLecturer)
-// console.log('line 14 ',tipe)
-// console.log('line 15' ,typeof(tipe))
+// let tes = !(2>3) && (100>1)
+// let tes = "dika".toLowerCase() !== "Dika".toLowerCase()
 
-var angka1 = 5 
-var angka2 = 7
-var hasil =angka1*angka2
-// console.log(hasil)
-
-var murid1 = 'dika'
-var murid2 = "doni"
-// console.log(murid1+' '+murid2)
-// console.log(`${murid1} ${murid2}`)
-
-// console.log('11'+1)
-// console.log('11'/2)
-
-// console.log(7%100)
-
-var angka1 = 5
-// tambah 1
-// angka1++
-// angka1 = angka1+1
-angka1+=10
-// sama dengan
-// angka1=angka1+10
+// console.log(tes)
 
 
-// console.log(Math.round(Math.random()*10))
-var numb = '112.02'
-var numb2=112
-numb2= numb2 +''
-// console.log(parseInt(numb))
-// console.log(Number(numb))
-// console.log(numb2)
-var x= 'Hello worlds'
-// console.log(x.slice(5,8))
-// console.log(x.split(' '))
-// let tes1 = 3
-// let tes = !(tes1 > 3)
-// let tes = tes1 > 3 
-// let tes = tes1 === 3 // === type data harus sama
-// let tes = tes1 == 3 // == type data boleh beda
-// ! itu pembalik misal dari true -> false , false-> true
- 
-// and operator && 
-// let tes = false && false && false
+// jika yang didalam kurung setelah if true maka 
+// kode yang ada didalam kurawal akan dijalankan
+// if(false){
+    //     namaMurid = 'raditya'
+    // }
+// let namaMurid = 'aqil'
+// let tes = !(2>3) && (100>1)
 
-// or operator ||
-// let tes = true || false || false
-let tes = true && !false || false
+// if(!(2>3) && (100>1)){
+//     console.log('lewat sini line 17')
+//     namaMurid = 'raditya'
+// }
+
+// console.log(namaMurid)
 
 
-console.log(tes)
 
+
+// let namaMurid = 'aqil'
+// let tes = !(2>3) && (100>1)
+// if/else jika if yang atas statementnya false , maka codingan yang ada didalam else 
+// pasti akan dibaca, 
+// sebaliknya jika if statement yang diatas true , maka else tidak akan 
+// dibaca
+// if((2>3) && (100>1)){
+//     console.log('lewat sini line 30')
+//     namaMurid = 'raditya'
+// }else{
+//     namaMurid = 'riyo'
+// }
+
+// console.log(namaMurid)
+
+
+
+
+// let namaMurid = 'aqil'
+// let tes = !(2>3) && (100>1)
+// // if/elseif/else jika if yang lebih awal kondisinya true, maka koding yang didalam kurawal
+// //  akan dibaca, dan di else if atau else tidak dibaca.
+// // sebaliknya jika semua false kondisinya, kodingan yang didalam kurawal else akan dibaca.
+
+// if((2>3) && (100>1)){
+//     console.log('lewat sini line 30')
+//     namaMurid = 'raditya'
+// }else if(51<10){
+//     namaMurid = 'riyo'
+// }else{
+//     namaMurid = 'felix'
+// }
+
+// console.log(namaMurid)
+
+// nilainya 
+// A = 85-100 nilai >=85 && nilai <=100
+// B = 75-84  nilai >=75 && nilai < 85
+// C = 60 -74 nilai >=60 && nilai < 75
+// D = 0- 59 nilai >=0 && nilai < 60
+// let nilai = 84.5
+// let grade 
+// if(nilai >=85 && nilai <=100){
+//     grade = 'A'
+// }else if(nilai>= 75 && nilai <85){
+//     grade = 'B'
+// }else if(nilai >=60 && nilai <75){
+//     grade = 'C'
+// }else if(nilai >=0 && nilai<60){
+//     grade = 'D'
+// }else if(nilai === null){
+//     grade = 'E'
+// }else{
+//     grade = 'salah input/ input diketahui'
+// }
+// console.log(grade)
+
+
+// let pekerjaan = "petani"
+// let kerjaannya 
+
+// switch (pekerjaan) {
+//     case "petani":
+//         kerjaannya = 'menanam'
+//         break
+//     case "sopir":
+//         kerjaannya = 'menyetir'
+//         break
+//     default:
+//         kerjaannya = 'ada aja '
+//         break;
+// }
+
+// if(pekerjaan === 'petani'){
+//     kerjaannya = 'menanam'
+// }else if(pekerjaan === 'sopir'){
+//     kerjaannya = 'menyetir'
+// }else{
+//     kerjaannya = 'ada aja '
+    
+// }
+
+// console.log(kerjaannya)
+let tes = ''
+// console.log(Boolean(tes))
+// if etternary
+let tes2 = tes? 'isi' :'kosong'
+// atas dan bawah sama 
+// if(tes){
+//     tes2='isi'
+// }else{
+//     tes2 = 'kosong'
+// }
+let tes3 = tes || "dsad"
+console.log(tes3)
+// if(tes){
+//     console.log('lewat 112')
+// }else{
+//     console.log('masuk else')
+// }

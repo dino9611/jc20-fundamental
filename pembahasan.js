@@ -3,7 +3,8 @@ let x =4 ,y= 3, z=2
 // let x =4
 // let y =3
 // let z=2
-
+// let atas =x+y*z
+// let bawah =x*y
 let w = ((x+y*z)/(x*y))**z
 
 console.log(w)
