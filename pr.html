@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR Day 1</title>
+</head>
+<body>
+    <h1>Purwadhika</h1>
+</body>
+<script>
+    // list nama buah
+    let namaBuah1= 'Apel'
+    let namaBuah2 = 'Anggur'
+    let namaBuah3 = 'Jeruk'
+    // list harga buah
+    let hargaBuah1 = 10e3
+    let hargaBuah2 = 15000
+    let hargaBuah3 = 20000
+    // ngasih selamat data
+    alert('Selamat Datang')
+    alert(`daftar Buah :
+    1. ${namaBuah1} : Rp. ${hargaBuah1}
+    2. ${namaBuah2} : Rp. ${hargaBuah2}
+    3. ${namaBuah3} : Rp. ${hargaBuah3}`)
+
+    // karena prompt itu string jadi haurs di parseInt
+    let qty1 = parseInt(prompt(`mau beli ${namaBuah1} berapa ?`))
+    let qty2 = prompt(`mau beli ${namaBuah2} berapa ?`)
+    qty2 = parseInt(qty2)
+    let qty3 = prompt(`mau beli ${namaBuah3} berapa ?`)
+    qty3 = parseInt(qty3)
+
+    // membuat total belanja
+    let total = (qty1*hargaBuah1)+(qty2*hargaBuah2)+(qty3*hargaBuah3)
+
+    alert(`daftar belanja :
+    1. ${namaBuah1} : ${qty1} X Rp. ${hargaBuah1} = Rp.${qty1*hargaBuah1}
+    2. ${namaBuah2} : ${qty2} X Rp. ${hargaBuah2} = Rp.${qty2*hargaBuah2}
+    3. ${namaBuah3} : ${qty3} X Rp. ${hargaBuah3} = Rp.${qty3*hargaBuah3}
+    total : Rp.${total}`)
+</script>
+</html>
