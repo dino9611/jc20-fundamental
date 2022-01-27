@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market V 1.2</title>
+</head>
+<body>
+    <h1>Purwadhika</h1>
+</body>
+<script>
+    // list nama buah
+    let namaBuah1= 'Apel'
+    let namaBuah2 = 'Anggur'
+    let namaBuah3 = 'Jeruk'
+    // list harga buah
+    let hargaBuah1 = 10e3
+    let hargaBuah2 = 15000
+    let hargaBuah3 = 20000
+    // list stock
+    let stock1 = 10
+    let stock2 = 10
+    let stock3 = 10
+    // ngasih selamat datang
+    alert('Selamat Datang')
+    alert(`daftar Buah :
+    1. ${namaBuah1} : Rp. ${hargaBuah1}, stock ${stock1} pcs
+    2. ${namaBuah2} : Rp. ${hargaBuah2}, stock ${stock2} pcs
+    3. ${namaBuah3} : Rp. ${hargaBuah3}, stock ${stock3} pcs`)
+
+    // karena prompt itu string jadi haurs di parseInt
+    let qty1 = parseInt(prompt(`mau beli ${namaBuah1} berapa ?`))
+    if(qty1 > stock1){
+        qty1 = stock1
+        alert(`qty ${namaBuah1}, akan diubah menjadi ${stock1} pcs`)
+    }
+    let qty2 = prompt(`mau beli ${namaBuah2} berapa ?`)
+    qty2 = parseInt(qty2)
+    if(qty2 > stock2){
+        qty2 = stock2
+        alert(`qty ${namaBuah2}, akan diubah menjadi ${stock2} pcs`)
+    }
+    let qty3 = prompt(`mau beli ${namaBuah3} berapa ?`)
+    qty3 = parseInt(qty3)
+    if(qty3 > stock3){
+        qty3 = stock3
+        alert(`qty ${namaBuah3}, akan diubah menjadi ${stock3} pcs`)
+    }
+
+    // membuat total belanja
+    let total = (qty1*hargaBuah1)+(qty2*hargaBuah2)+(qty3*hargaBuah3)
+
+    let bayar = prompt(`daftar belanja :
+    1. ${namaBuah1} : ${qty1} X Rp. ${hargaBuah1} = Rp.${qty1*hargaBuah1}
+    2. ${namaBuah2} : ${qty2} X Rp. ${hargaBuah2} = Rp.${qty2*hargaBuah2}
+    3. ${namaBuah3} : ${qty3} X Rp. ${hargaBuah3} = Rp.${qty3*hargaBuah3}
+    total : Rp.${total}
+    menunggu pembayaran `)
+    
+    // parsing dari string to number
+    bayar = parseInt(bayar)
+
+    if(bayar === total){
+        alert('uangnya pas bos ')
+    }else if (bayar > total){
+        alert('kembaliannya ' + (bayar-total))
+    }else{
+        alert(`duitnya kurang bos , Rp.${total-bayar},00  lagi dong `)
+    }
+</script>
+</html>
