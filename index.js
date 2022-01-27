@@ -146,18 +146,18 @@
 
 // bintang persegi
 
-console.log('*\n**\n***\n****\n*****\n')
+// console.log('*\n**\n***\n****\n*****\n')
 
-console.log('===================')
+// console.log('===================')
 
-let output=''
+// let output=''
 
-for(let i = 0;i<5;i++){
-    for (let j = 0; j <= i; j++) {
-        output+='*'
-    }
-    output+='\n'
-}
+// for(let i = 0;i<5;i++){
+//     for (let j = 0; j <= i; j++) {
+//         output+='*'
+//     }
+//     output+='\n'
+// }
 
 // tanpa looping
 // output+='*' i =0 j=0
@@ -183,4 +183,4 @@ for(let i = 0;i<5;i++){
 
 
 
-console.log(output)
+// console.log(output)
