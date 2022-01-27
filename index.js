@@ -1,125 +1,186 @@
+// while 
+// ini infinite looping karena tidak ada jalan keluar
+// while (true) {
+//     console.log('line 4')
+// }
+// let angka = 1
 
-// let tes = !(2>3) && (100>1)
-// let tes = "dika".toLowerCase() !== "Dika".toLowerCase()
-
-// console.log(tes)
-
-
-// jika yang didalam kurung setelah if true maka 
-// kode yang ada didalam kurawal akan dijalankan
-// if(false){
-    //     namaMurid = 'raditya'
-    // }
-// let namaMurid = 'aqil'
-// let tes = !(2>3) && (100>1)
-
-// if(!(2>3) && (100>1)){
-//     console.log('lewat sini line 17')
-//     namaMurid = 'raditya'
+// while (angka<0) {
+//     console.log('count- '+angka)
+//     angka++
 // }
 
-// console.log(namaMurid)
+// console.log('terakhir',angka)
 
 
+// do while , kerjakan dulu baru di cek kondisi
+// let angka = 1
+
+// do {
+//     console.log(angka)
+//     angka++
+// } while (angka<5);
 
 
-// let namaMurid = 'aqil'
-// let tes = !(2>3) && (100>1)
-// if/else jika if yang atas statementnya false , maka codingan yang ada didalam else 
-// pasti akan dibaca, 
-// sebaliknya jika if statement yang diatas true , maka else tidak akan 
-// dibaca
-// if((2>3) && (100>1)){
-//     console.log('lewat sini line 30')
-//     namaMurid = 'raditya'
-// }else{
-//     namaMurid = 'riyo'
-// }
-
-// console.log(namaMurid)
-
-
-
-
-// let namaMurid = 'aqil'
-// let tes = !(2>3) && (100>1)
-// // if/elseif/else jika if yang lebih awal kondisinya true, maka koding yang didalam kurawal
-// //  akan dibaca, dan di else if atau else tidak dibaca.
-// // sebaliknya jika semua false kondisinya, kodingan yang didalam kurawal else akan dibaca.
-
-// if((2>3) && (100>1)){
-//     console.log('lewat sini line 30')
-//     namaMurid = 'raditya'
-// }else if(51<10){
-//     namaMurid = 'riyo'
-// }else{
-//     namaMurid = 'felix'
-// }
-
-// console.log(namaMurid)
-
-// nilainya 
-// A = 85-100 nilai >=85 && nilai <=100
-// B = 75-84  nilai >=75 && nilai < 85
-// C = 60 -74 nilai >=60 && nilai < 75
-// D = 0- 59 nilai >=0 && nilai < 60
-// let nilai = 84.5
-// let grade 
-// if(nilai >=85 && nilai <=100){
-//     grade = 'A'
-// }else if(nilai>= 75 && nilai <85){
-//     grade = 'B'
-// }else if(nilai >=60 && nilai <75){
-//     grade = 'C'
-// }else if(nilai >=0 && nilai<60){
-//     grade = 'D'
-// }else if(nilai === null){
-//     grade = 'E'
-// }else{
-//     grade = 'salah input/ input diketahui'
-// }
-// console.log(grade)
-
-
-// let pekerjaan = "petani"
-// let kerjaannya 
-
-// switch (pekerjaan) {
-//     case "petani":
-//         kerjaannya = 'menanam'
+// console.log('line 23')
+// alur initialisasi variable let numb , jika kondisi numb kurang dari sama dengan 5 menghasilkan
+// true maka koding yang ada didalam kurawal pasti dijalankan, setelah selasai dijalankan 
+// maka variable numb akan ditambah 1 (karena ++) , lalu di cek kembali apakah kondisinya true/false,
+// jika ulangi lagi
+// for (let numb = -5; numb < 0; numb++) {
+//     console.log('count- '+Math.abs(numb)) 
+//     if(Math.abs(numb) === 3){
 //         break
-//     case "sopir":
-//         kerjaannya = 'menyetir'
-//         break
-//     default:
-//         kerjaannya = 'ada aja '
-//         break;
+//     }
+// }
+// let angka = 0
+// while(angka<5){
+//     angka++
+//     if(angka === 3){
+//         continue
+//     }
+//     console.log(angka)
 // }
 
-// if(pekerjaan === 'petani'){
-//     kerjaannya = 'menanam'
-// }else if(pekerjaan === 'sopir'){
-//     kerjaannya = 'menyetir'
-// }else{
-//     kerjaannya = 'ada aja '
-    
+// for (let i = 0; i < 5; i++) {
+//     if(i == 3){
+//         continue
+//     }
+//     console.log(i)
+// }
+// bintang horizontal
+// console.log('*****')
+
+// console.log('===================')
+
+// let output=''
+
+// for(let i = 5;i>0;i--){
+//     output+='*'
 // }
 
-// console.log(kerjaannya)
-let tes = ''
-// console.log(Boolean(tes))
-// if etternary
-let tes2 = tes? 'isi' :'kosong'
-// atas dan bawah sama 
-// if(tes){
-//     tes2='isi'
-// }else{
-//     tes2 = 'kosong'
+// tanpa looping
+
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+
+// console.log(output)
+
+// bintang vertikal
+
+// console.log('*\n*\n*\n*\n*\n')
+
+// console.log('===================')
+
+// let output=''
+
+// for(let i = 5;i>0;i--){
+//     output+='*\n'
 // }
-let tes3 = tes || "dsad"
-console.log(tes3)
-// if(tes){
-//     console.log('lewat 112')
-// }else{
-//     console.log('masuk else')
+
+// // tanpa looping
+
+// output+='*\n'
+// output+='*\n'
+// output+='*\n'
+// output+='*\n'
+// output+='*\n'
+
+// console.log(output)
+
+
+// bintang persegi
+
+// console.log('*****\n*****\n*****\n*****\n*****\n')
+
+// console.log('===================')
+
+// let output=''
+
+// for(let i = 0;i<5;i++){
+//     for (let j = 0; j < 5; j++) {
+//         output+='*'
+//     }
+//     output+='\n'
 // }
+
+// tanpa looping
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='\n'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='\n'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='\n'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='\n'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='\n'
+
+
+
+// console.log(output)
+
+
+// bintang persegi
+
+console.log('*\n**\n***\n****\n*****\n')
+
+console.log('===================')
+
+let output=''
+
+for(let i = 0;i<5;i++){
+    for (let j = 0; j <= i; j++) {
+        output+='*'
+    }
+    output+='\n'
+}
+
+// tanpa looping
+// output+='*' i =0 j=0
+// output+='\n'i=0
+// output+='*' i=1 j=0
+// output+='*' i =1 j=1
+// output+='\n'
+// output+='*' i= 2 j=0
+// output+='*'      j=1
+// output+='*'  i=2   j=2
+// output+='\n'
+// output+='*' i=3
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='\n'
+// output+='*' i=4
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='*'
+// output+='\n'
+
+
+
+console.log(output)
