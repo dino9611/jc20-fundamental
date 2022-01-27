@@ -55,7 +55,7 @@
 
 // let output=''
 
-// for(let i = 5;i>0;i--){
+// for(let i = 0;i<5;i++){
 //     output+='*'
 // }
 
@@ -144,7 +144,7 @@
 // console.log(output)
 
 
-// bintang persegi
+// bintang segitiga alas bawah
 
 // console.log('*\n**\n***\n****\n*****\n')
 
@@ -184,3 +184,39 @@
 
 
 // console.log(output)
+
+
+// segitiga alas atas 
+// let tinggi = 5
+// let output = ''
+// for(let i = 0 ; i<tinggi ; i++){
+//     for(let j= i;j<tinggi;j++){
+//         output+='*'
+//     }
+//     if(i <tinggi -1){
+//         output+='\n'
+//     }
+// }
+// console.log(output)
+
+// let tinggi = 10
+// let output=''
+
+// for(let i = 0;i<tinggi;i++){
+//     // segitiga alas atas
+//     for(let j= i;j<tinggi-1;j++){
+//         output+='   '
+//     }
+//     // segitiga alas bawah
+//     for (let k = 0; k <= i; k++) {
+//         output+=' * '
+//     }
+//     if(i <tinggi -1){
+//         output+='\n'
+//     }
+// }
+
+// console.log(output)
+
+
+
