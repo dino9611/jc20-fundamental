@@ -128,3 +128,8 @@ for (let i = 0; i < categories.length; i++) {
     output+=`${i+1}. ${categories[i]}\n` ;
 }
 console.log(output)
+
+let noTlp = [8321321319,832131,8313213,731321]
+
+// ['08','08','08',tidak dikenal]
+
