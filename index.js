@@ -160,7 +160,7 @@ let FootBallPlayer1 = new FootBallPlayer(
   "Brazil",
   "left"
 );
-let penyanyi = new Artist("isyana", "1990-05-21", "indonesia", "singer");
+let penyanyi = new Artist("Isyana", "1990-05-21", "Indonesia", "Singer");
 console.log(FootBallPlayer1);
 console.log(penyanyi);
 
