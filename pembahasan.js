@@ -46,4 +46,5 @@ let ampuh = [
   ],
 ];
 
-console.log(ampuh[0][1]["andika"].arta()()); // fauzi
+// console.log(ampuh[0][1]["andika"].arta()()); // fauzi
+
