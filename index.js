@@ -117,6 +117,27 @@ let person1 = {
 
 // console.log(person1.retired());
 // console.log(this);
+// let categories = ["cepat saji", "pakaian", "elektronik", "buah"];
+// let product ={
+//   name: "noodle",
+//   price: 20000,
+//   stock: 10,
+//   categoryId: 0,
+// }
+// let cepatSaji1 = {
+//   name: "noodle",
+//   price: 20000,
+//   stock: 10,
+//   categoryId: 0,
+//   expired: 2020,
+// };
+// let pakaian1 = {
+//   name: "baju",
+//   price: 20000,
+//   stock: 10,
+//   categoryId: 0,
+//   size: "xl",
+// };
 
 class Manusia {
   constructor(name, birthDate, nationality) {
