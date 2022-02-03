@@ -145,3 +145,66 @@ const mode = (arr) => {
 };
 
 console.log("modusnya adalah", mode([1, 1, 3, 1, 5, 1, 7, 2]));
+
+// caesar cipher
+// bbuat alphabet kecil dan besar
+// jika bukan huruf atau spasi maka tetap
+// jika huruf
+// cari index huruf pertama
+// tambahkan dengan angka yang maju
+// di modulus 26
+// ulangi sampai hurufnya habis
+const caesarCipher = (sentence, add) => {
+  let abjad = "abcdefghijklmnopqrstuvwxyz".split("");
+  let abjadGede = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+  sentence = sentence.split("");
+  let output = "";
+  sentence.forEach((val) => {
+    if (val === " ") {
+      output += val;
+    } else {
+      let urutan = abjad.indexOf(val);
+      if (urutan < 0) {
+        // jika charakter tidak ada di hruf kecil
+        // maka cari di hruf gede
+        urutan = abjadGede.indexOf(val);
+        output += abjadGede[(urutan + add) % 26];
+      } else {
+        output += abjad[(urutan + add) % 26];
+      }
+    }
+  });
+  return output;
+};
+
+const caesarDecipher = (sentence, add) => {
+  let abjad = "abcdefghijklmnopqrstuvwxyz".split("");
+  let abjadGede = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+  sentence = sentence.split("");
+  let output = "";
+  sentence.forEach((val) => {
+    if (val === " ") {
+      output += val;
+    } else {
+      let urutan = abjad.indexOf(val);
+      if (urutan < 0) {
+        // jika charakter tidak ada di hruf kecil
+        // maka cari di hruf gede
+        urutan = abjadGede.indexOf(val);
+        output += abjadGede[(urutan + add) % 26];
+      } else {
+        output += abjad[(urutan + add) % 26];
+      }
+    }
+  });
+  return output;
+};
+
+// let abjad = "abcdefghijklmnopqrstuvwxyz".split("");
+// let abjadGede = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+// let huruf = "z";
+// let urutan = abjad.indexOf(huruf);
+// console.log(abjad[(urutan + 100) % 26]);
+
+console.log(caesarCipher("Sunday Six", 2));
+console.log(caesarDecipher("Uwpfca Ukz", 2));
