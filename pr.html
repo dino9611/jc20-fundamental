@@ -1,143 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Market V 1.4</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Purwadhika</h1>
-</body>
-<script>
+  </body>
+  <script>
     // master data
-    let buahs =[
-        ['Apel',10e3,10],
-        ['Anggur',15000,10],
-        ['Jeruk',20000,10]
-    ]
-    
-    let carts=[]
-    let qty1
-    let qty2
-    let qty3
+    let buahs = [
+      ["Apel", 10e3, 10],
+      ["Anggur", 15000, 10],
+      ["Jeruk", 20000, 10],
+    ];
+
+    let carts = [];
+    let qty1;
+    let qty2;
+    let qty3;
+
+    const renderBuah = () => {
+      let output = "";
+      buahs.forEach((val, i) => {
+        output += `${i + 1}. ${val[0]} : Rp. ${val[1]}, stock ${val[2]} pcs\n`;
+      });
+      return output;
+    };
+    const renderCarts = () => {
+      let output = "";
+      carts.forEach((val, i) => {
+        output += `${i + 1}. ${val[0]} : Rp. ${val[1]}, stock ${val[2]} pcs\n`;
+      });
+      return output;
+    };
+
+    const renderBelanja = () => {
+      let output = "";
+      carts.forEach((val, i) => {
+        output += `${i + 1}. ${val[0]} : ${val[2]} X Rp. ${val[1]} = Rp.${
+          val[2] * val[1]
+        }\n`;
+      });
+      return output;
+    };
+
+    const totalOpt = () => {
+      let total = 0;
+      carts.forEach((val) => {
+        total += val[1] * val[2];
+      });
+      return total;
+    };
     // ngasih selamat datang
-    alert('Selamat Datang')
-    let confirmUtama
+    alert("Selamat Datang");
+    let confirmUtama;
     do {
-        let menuUtama = prompt(`Menu utama\n`+`1. List Buah\n`+`2. Tambah buah\n`+`3. Hapus Buah\n`+'4. Beli Buah\n'+'5. Exit')
-        
-        if(menuUtama == 1){
-            // FEATURE TAMPILKAN BUAH
-            let output = 'List Buah:\n'
-            for (let i = 0; i < buahs.length; i++) {
-                const element = buahs[i];
-                output+=`${i+1}. ${element[0]} : Rp. ${element[1]}, stock ${element[2]} pcs\n`
-            }
-            alert(output)
-        }else if(menuUtama == 2){
-            // FEATURE TAMBAH BUAH
-            let namaBuah = prompt('nama buah ?')
-            let hargaBuah =  parseInt(prompt('harganya berapa?'))
-            let stockBuah = parseInt(prompt('stocknya berapa ?'))
-            buahs.push([namaBuah,hargaBuah,stockBuah])
-            // FEATURE TAMPILKAN BUAH
-            let output = 'List Buah:\n'
-            for (let i = 0; i < buahs.length; i++) {
-                const element = buahs[i];
-                output+=`${i+1}. ${element[0]} : Rp. ${element[1]}, stock ${element[2]} pcs\n`
-            }
-            alert(output)
+      let menuUtama = prompt(
+        `Menu utama\n` +
+          `1. List Buah\n` +
+          `2. Tambah buah\n` +
+          `3. Hapus Buah\n` +
+          "4. Beli Buah\n" +
+          "5. Exit"
+      );
 
-        }else if(menuUtama == 3){
-            // FEATURE HAPUS BUAH
+      if (menuUtama == 1) {
+        // FEATURE TAMPILKAN BUAH
+        let output = "List Buah:\n" + renderBuah();
+        alert(output);
+      } else if (menuUtama == 2) {
+        // FEATURE TAMBAH BUAH
+        let namaBuah = prompt("nama buah ?");
+        let hargaBuah = parseInt(prompt("harganya berapa?"));
+        let stockBuah = parseInt(prompt("stocknya berapa ?"));
+        buahs.push([namaBuah, hargaBuah, stockBuah]);
+        // FEATURE TAMPILKAN BUAH
+        let output = "List Buah:\n" + renderBuah();
+        alert(output);
+      } else if (menuUtama == 3) {
+        // FEATURE HAPUS BUAH
 
-            // FEATURE TAMPILKAN BUAH UNTUK INPUT HAPUS
-            let output = 'List Buah:\n'
-            for (let i = 0; i < buahs.length; i++) {
-                const element = buahs[i];
-                output+=`${i+1}. ${element[0]} : Rp. ${element[1]}, stock ${element[2]} pcs\n`
-            }
-            output+='yang mana yang mau dihapus ?'
-            let nomerHapus=prompt(output)
-            let confirmHapus = confirm(`yakin mau hapus ${buahs[nomerHapus-1][0]}?`)
-            if(confirmHapus){
-                buahs.splice(nomerHapus-1,1)
-            }
-
-            let output1 = 'List Buah:\n'
-            for (let i = 0; i < buahs.length; i++) {
-                const element = buahs[i];
-                output1+=`${i+1}. ${element[0]} : Rp. ${element[1]}, stock ${element[2]} pcs\n`
-            }
-            alert(output1)
-        }else if(menuUtama == 4){
-            // FEATURE TAMPILKAN BUAH UNTUK INPUT pembelian
-            let beliLagi 
-            do {
-                
-                let output = 'List Buah:\n'
-                for (let i = 0; i < buahs.length; i++) {
-                    const element = buahs[i];
-                    output+=`${i+1}. ${element[0]} : Rp. ${element[1]}, stock ${element[2]} pcs\n`
-                }
-                output+='buah yang mana yang mau dibeli ?'
-    
-                let nomerBeli=prompt(output)
-                let qtybeli =prompt(`pengen beli buah ${buahs[nomerBeli-1][0]} berapa ?`)
-                carts.push([buahs[nomerBeli-1][0],buahs[nomerBeli-1][1],qtybeli])
-                alert('berhasil tambah barang ke cart')
-    
-                // FEATURE TAMPILKAN CART
-                let output1 = 'List cart:\n'
-                for (let i = 0; i < carts.length; i++) {
-                    const element = carts[i];
-                    output1+=`${i+1}. ${element[0]} : Rp. ${element[1]}, stock ${element[2]} pcs\n`
-                }
-                alert(output1)
-                
-                beliLagi = confirm('mau beli lagi ?')
-            } while (beliLagi);
-
-            // membuat total belanja
-            let total = 0
-            for(let i=0; i < carts.length;i++){
-                total+= (carts[i][1]*carts[i][2])
-            }
-            
-            while (true) {
-                let output ='daftar belanja :\n'
-                for (let i = 0; i < carts.length; i++) {
-                    const element = carts[i];
-                    output+=`${i+1}. ${element[0]} : ${element[2]} X Rp. ${element[1]} = Rp.${element[2]*element[1]}\n`
-                }
-                output+=`total: Rp.${total}\nmenunggu pembayaran ?`
-                let bayar = prompt(output)
-                
-                // parsing dari string to number
-                bayar = parseInt(bayar)
-            
-                if(bayar === total){
-                    alert('uangnya pas bos ')
-                    break
-                }else if (bayar > total){
-                    alert('kembaliannya ' + (bayar-total))
-                    break
-                }else{
-                    alert(`duitnya kurang bos , Rp.${total-bayar},00  lagi dong `)
-                }   
-            }
-
-        }else if(menuUtama == 5){
-            // confirm kalo user tekan yes maka hasilnya true
-            // begitu sebaliknya
-            confirmUtama = confirm('yakin keluar menu utama ?')
-        }else{
-            alert('input yang benar lah ')
+        // FEATURE TAMPILKAN BUAH UNTUK INPUT HAPUS
+        let output = "List Buah:\n" + renderBuah();
+        output += "yang mana yang mau dihapus ?";
+        let nomerHapus = prompt(output);
+        let confirmHapus = confirm(
+          `yakin mau hapus ${buahs[nomerHapus - 1][0]}?`
+        );
+        if (confirmHapus) {
+          buahs.splice(nomerHapus - 1, 1);
         }
-    } while (!confirmUtama);
-    alert('terima kasih')
 
-   
-</script>
+        let output1 = "List Buah:\n" + renderBuah();
+        alert(output1);
+      } else if (menuUtama == 4) {
+        // FEATURE TAMPILKAN BUAH UNTUK INPUT pembelian
+        let beliLagi;
+        do {
+          let output = "List Buah:\n" + renderBuah();
+          output += "buah yang mana yang mau dibeli ?";
+
+          let nomerBeli = prompt(output);
+          let qtybeli = prompt(
+            `pengen beli buah ${buahs[nomerBeli - 1][0]} berapa ?`
+          );
+          carts.push([
+            buahs[nomerBeli - 1][0],
+            buahs[nomerBeli - 1][1],
+            qtybeli,
+          ]);
+          alert("berhasil tambah barang ke cart");
+
+          // FEATURE TAMPILKAN CART
+          let output1 = "List cart:\n" + renderCarts();
+          alert(output1);
+
+          beliLagi = confirm("mau beli lagi ?");
+        } while (beliLagi);
+
+        // membuat total belanja
+        let total = totalOpt();
+
+        while (true) {
+          let output = "daftar belanja :\n" + renderBelanja();
+          output += `total: Rp.${total}\nmenunggu pembayaran ?`;
+          let bayar = prompt(output);
+
+          // parsing dari string to number
+          bayar = parseInt(bayar);
+
+          if (bayar === total) {
+            alert("uangnya pas bos ");
+            break;
+          } else if (bayar > total) {
+            alert("kembaliannya " + (bayar - total));
+            break;
+          } else {
+            alert(`duitnya kurang bos , Rp.${total - bayar},00  lagi dong `);
+          }
+        }
+      } else if (menuUtama == 5) {
+        // confirm kalo user tekan yes maka hasilnya true
+        // begitu sebaliknya
+        confirmUtama = confirm("yakin keluar menu utama ?");
+      } else {
+        alert("input yang benar lah ");
+      }
+    } while (!confirmUtama);
+    alert("terima kasih");
+  </script>
 </html>
