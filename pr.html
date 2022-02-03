@@ -4,19 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Market V 1.4</title>
+    <title>Market V 1.5</title>
   </head>
   <body>
     <h1>Purwadhika</h1>
   </body>
   <script>
     // master data
-    // let buahs =[
-    //     ['Apel',10e3,10],
-    //     ['Anggur',15000,10],
-    //     ['Jeruk',20000,10]
-    // ]
-    // let props = 'stock'
     let buahs = [
       { name: "Apel", harga: 10e3, stock: 10 },
       { name: "Anggur", harga: 15e3, stock: 10 },
@@ -25,6 +19,42 @@
 
     let carts = [];
 
+    const renderBuah = () => {
+      let output = "";
+      buahs.forEach((val, i) => {
+        output += `${i + 1}. ${val.name} : Rp. ${val.harga}, stock ${
+          val.stock
+        } pcs\n`;
+      });
+      return output;
+    };
+    const renderCarts = () => {
+      let output = "";
+      carts.forEach((val, i) => {
+        output += `${i + 1}. ${val.name} : Rp. ${val.harga}, qty ${
+          val.qty
+        } pcs\n`;
+      });
+      return output;
+    };
+
+    const renderBelanja = () => {
+      let output = "";
+      carts.forEach((val, i) => {
+        output += `${i + 1}. ${val.name} : ${val.qty} X Rp. ${val.harga} = Rp.${
+          val.qty * val.harga
+        }\n`;
+      });
+      return output;
+    };
+
+    const totalOpt = () => {
+      let total = 0;
+      carts.forEach((val) => {
+        total += val.harga * val.qty;
+      });
+      return total;
+    };
     // ngasih selamat datang
     alert("Selamat Datang");
     let confirmUtama;
@@ -40,13 +70,7 @@
 
       if (menuUtama == 1) {
         // FEATURE TAMPILKAN BUAH
-        let output = "List Buah:\n";
-        for (let i = 0; i < buahs.length; i++) {
-          const element = buahs[i];
-          output += `${i + 1}. ${element.name} : Rp. ${element.harga}, stock ${
-            element.stock
-          } pcs\n`;
-        }
+        let output = "List Buah:\n" + renderBuah();
         alert(output);
       } else if (menuUtama == 2) {
         // FEATURE TAMBAH BUAH
@@ -55,25 +79,13 @@
         let stockBuah = parseInt(prompt("stocknya berapa ?"));
         buahs.push({ name: namaBuah, harga: hargaBuah, stock: stockBuah });
         // FEATURE TAMPILKAN BUAH
-        let output = "List Buah:\n";
-        for (let i = 0; i < buahs.length; i++) {
-          const element = buahs[i];
-          output += `${i + 1}. ${element.name} : Rp. ${element.harga}, stock ${
-            element.stock
-          } pcs\n`;
-        }
+        let output = "List Buah:\n" + renderBuah();
         alert(output);
       } else if (menuUtama == 3) {
         // FEATURE HAPUS BUAH
 
         // FEATURE TAMPILKAN BUAH UNTUK INPUT HAPUS
-        let output = "List Buah:\n";
-        for (let i = 0; i < buahs.length; i++) {
-          const element = buahs[i];
-          output += `${i + 1}. ${element.name} : Rp. ${element.harga}, stock ${
-            element.stock
-          } pcs\n`;
-        }
+        let output = "List Buah:\n" + renderBuah();
         output += "yang mana yang mau dihapus ?";
         let nomerHapus = prompt(output);
         let confirmHapus = confirm(
@@ -83,25 +95,13 @@
           buahs.splice(nomerHapus - 1, 1);
         }
 
-        let output1 = "List Buah:\n";
-        for (let i = 0; i < buahs.length; i++) {
-          const element = buahs[i];
-          output1 += `${i + 1}. ${element.name} : Rp. ${element.harga}, stock ${
-            element.stock
-          } pcs\n`;
-        }
+        let output1 = "List Buah:\n" + renderBuah();
         alert(output1);
       } else if (menuUtama == 4) {
         // FEATURE TAMPILKAN BUAH UNTUK INPUT pembelian
         let beliLagi;
         do {
-          let output = "List Buah:\n";
-          for (let i = 0; i < buahs.length; i++) {
-            const element = buahs[i];
-            output += `${i + 1}. ${element.name} : Rp. ${
-              element.harga
-            }, stock ${element.stock} pcs\n`;
-          }
+          let output = "List Buah:\n" + renderBuah();
           output += "buah yang mana yang mau dibeli ?";
 
           let nomerBeli = prompt(output);
@@ -116,32 +116,17 @@
           alert("berhasil tambah barang ke cart");
 
           // FEATURE TAMPILKAN CART
-          let output1 = "List cart:\n";
-          for (let i = 0; i < carts.length; i++) {
-            const element = carts[i];
-            output1 += `${i + 1}. ${element.name} : Rp. ${
-              element.harga
-            }, stock ${element.qty} pcs\n`;
-          }
+          let output1 = "List cart:\n" + renderCarts();
           alert(output1);
 
           beliLagi = confirm("mau beli lagi ?");
         } while (beliLagi);
 
         // membuat total belanja
-        let total = 0;
-        for (let i = 0; i < carts.length; i++) {
-          total += carts[i].harga * carts[i].qty;
-        }
+        let total = totalOpt();
 
         while (true) {
-          let output = "daftar belanja :\n";
-          for (let i = 0; i < carts.length; i++) {
-            const element = carts[i];
-            output += `${i + 1}. ${element.name} : ${element.qty} X Rp. ${
-              element.harga
-            } = Rp.${element.qty * element.harga}\n`;
-          }
+          let output = "daftar belanja :\n" + renderBelanja();
           output += `total: Rp.${total}\nmenunggu pembayaran ?`;
           let bayar = prompt(output);
 
