@@ -19,15 +19,24 @@ console.log(data);
 const renderData = () => {
   let element = document.getElementById("data");
   // innerHtml untuk memasukkan html ke dalam tag yang dituju
-  let output = "";
-  data.forEach((val, index) => {
-    output += `<tr>
+  // let output = "";
+  // data.forEach((val, index) => {
+  //   output += `<tr>
+  //             <td>${index + 1}</td>
+  //             <td>${val.name}</td>
+  //             <td>${val.hobby}</td>
+  //           </tr>`;
+  // });
+  // element.innerHTML = output;
+
+  let output =data.map((val,index)=>{
+    return `<tr>
               <td>${index + 1}</td>
               <td>${val.name}</td>
               <td>${val.hobby}</td>
-            </tr>`;
-  });
-  element.innerHTML = output;
+            </tr>`
+  })
+  element.innerHTML = output.join('');
 };
 
 renderData();
