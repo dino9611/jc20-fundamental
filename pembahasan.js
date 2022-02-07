@@ -1,50 +1,23 @@
-let props = "andhika";
-const selda = (param) => {
-  if (param === "bob") {
-    return () => {
-      return {
-        ampuh: {
-          andhika: [
-            {
-              arta: "berhasil",
-            },
-          ],
-        },
-      };
-    };
-  } else {
-    return "error";
-  }
-};
+let data =[
+  {name:"felix",usia:12},
+  {name:'dino',usia:20},
+  {name:'arta',usia:15}
+]
 
-// console.log(selda("bob")().ampuh[props][0].arta); // berhasil
+const sortby = (arr,props,urutan)=>{
+  
+  let newData = arr.sort((a,b)=>{
 
-let docs = {
-  getNilai() {
-    return [
-      ,
-      {
-        value: "berhasil",
-      },
-    ];
-  },
-};
-console.log(docs.getNilai()[1].value); //berhasil
+    if(a[props]>b[props]){
+      return urutan ==='desc' ? -1:1
+    }
+    if(a[props]<b[props]){
+      return urutan ==='desc' ? 1:-1
+    }
+    return 0
+  })
+  return newData
+}
 
-let ampuh = [
-  [
-    ,
-    {
-      andika: {
-        arta: () => {
-          return () => {
-            return "fauzi";
-          };
-        },
-      },
-    },
-  ],
-];
-
-// console.log(ampuh[0][1]["andika"].arta()()); // fauzi
+console.log(sortby(data,"name",'desc'))
 
