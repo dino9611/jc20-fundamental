@@ -75,5 +75,37 @@ const klikAja = () => {
   //     gender = radios[i].value;
   //   }
   // }
-  console.log(gender);
+
+  // console.log(gender);
+  // mengambil value tag select 
+  // let hari = document.getElementById('pilihan').value
+  // console.log(hari)
+
+  let items = []
+  let checkEL = document.getElementsByName('item')
+  console.log(checkEL)
+  // jika ingin melakukan hal sepeti dibawah
+  // koding yang berulang-ulang dan hampir mirip
+  // lakukanlah looping
+  // if(checkEL[0].checked){
+  //   items.push(checkEL[0].value)
+  // }
+  // if(checkEL[1].checked){
+  //   items.push(checkEL[1].value)
+  // }
+  checkEL.forEach((el)=>{
+    if(el.checked){
+      items.push(el.value)
+    }
+  })
+
+  console.log(items)
+  if(items.length < 3){
+    document.getElementById('output').innerHTML= 'harus tiga dong '
+    return
+  }
+  document.getElementById('output').innerHTML= 'ok'
+
+
+
 };
