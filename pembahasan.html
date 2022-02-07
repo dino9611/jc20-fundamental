@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        table,tr,td,th{
+            border-collapse: collapse;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Manusia</h1>
+    nama : &nbsp;&nbsp;&nbsp;<input type="text" id="nama"> <br/> <br>
+    usia : &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="usia"> <br> <br>
+    jenis kelamin: &emsp; 
+    <span id="sexes">
+      <!-- <input type="radio"  name="sex" value="pria"> pria &ensp; <input type="radio" name="sex" value="wanita"> wanita -->
+    </span>  
+    <br><br>
+    Profesi:&emsp;<select id="profesi">
+      <!-- <option value="" hidden selected>pilih profesi</option>
+      <option value="guru">guru</option>
+      <option value="ceo">ceo</option>
+      <option value="seniman">seniman</option> -->
+    </select> <br> <br>
+
+    <button onclick="klikOy()">klik oy</button> <br> <br>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama</th>
+                <th>usia</th>
+                <th>Jenis Kelamin</th>
+                <th>Pekerjaan</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+      
+        </tbody>
+    </table>
+  </body>
+  <script>
+    let sexes = ['pria','wanita','other']
+
+    let jobs = ['Guru','CEO','Seniman','polisi']
+    let data =[
+        {nama:'joni',usia:20,sex:'pria',job:'artis'}
+    ]   
+
+    const renderData = ()=>{
+        let output = ''
+
+        data.forEach((val,index)=>{
+            output+=`
+            <tr>
+                <td>${index+1}</td>
+                <td>${val.nama}</td>
+            <td>${val.usia}</td>
+            <td>${val.sex}</td>
+            <td>${val.job}</td>
+            </tr>`
+        })
+
+        document.getElementById('output').innerHTML=output
+    }
+
+    const initialRender = ()=>{
+        // renderSexes
+        let outputSex = sexes.map((val)=>{
+            return `<input type="radio"  name="sex" value="${val}">
+            ${val} &ensp;`
+        }).join('')
+        // render jobs
+        let outputJobs = '<option value="" hidden selected>pilih profesi</option>'
+        jobs.forEach((val)=>{
+            outputJobs+=` <option value="${val}">${val}</option>`
+        })
+
+                
+        document.getElementById('sexes').innerHTML = outputSex
+        document.getElementById('profesi').innerHTML = outputJobs
+        
+        // render Data yang ada 
+        renderData()
+
+    }
+  
+
+    initialRender()
+
+
+    const klikOy =()=>{
+      let nama = document.getElementById('nama').value
+      console.log(document.getElementById('nama'))
+      let usia = document.getElementById('usia').value
+      let sex = document.getElementsByName('sex')
+      console.log(sex)
+      // get radio value
+      let sexChoice = ''
+      sex.forEach((el)=>{
+        if(el.checked){
+          sexChoice = el.value
+        }
+      })
+      // get select input
+      let profesi = document.getElementById('profesi').value
+      //   data.push({nama:nama,usia:usia,sex:sexChoice,job:profesi})
+      // atas dan bawah sama saja kodingnya   
+      data.push({nama,usia,sex:sexChoice,job:profesi})
+
+      renderData()
+    }
+  </script>
+</html>
