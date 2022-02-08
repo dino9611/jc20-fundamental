@@ -16,4 +16,6 @@ d. commit
 
 - git add : memasukkan file yang dimau ke fase stage contoh git add . , titik (.) artinya semua file yang ada di folder tempat terminal berada , atau jika mau satu file saja maka tulis git add namafile , bisa lebih dari satu pisahkan dengna spasi
 
+perubahan
+
 
