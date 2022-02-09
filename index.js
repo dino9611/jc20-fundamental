@@ -5,9 +5,9 @@
     
 // }
 // console.log('jalan setelah 1 detik')
-const fungsiku = ()=>{
-    console.log('jalan setelah 1 detik')
-}
+// const fungsiku = ()=>{
+//     console.log('jalan setelah 1 detik')
+// }
 
 // setTimeout(fungsiku,1000)
 
@@ -76,6 +76,23 @@ const fungsiku = ()=>{
 
 // fetchData()
 
+// console.log('setleah set timout')
+
+// setInterval
+// let detik = 0
+// // let timer
+// let timer= setInterval(()=>{
+//     detik++
+//     console.log('jalan ke '+detik)
+//     if(detik == 5){
+//         clearInterval(timer)
+//     }
+// },1000)
 
 
-console.log('setleah set timout')
+
+
+
+
+
+
