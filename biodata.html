@@ -22,17 +22,18 @@
     <form>
         <fieldset>
             <legend>Filter</legend>
-            Nama : <input type="text" id="namaFilter"> <br><br>
-            Usia : <input type="number" id="usiaFilter"> <br><br>
+            Nama : <input type="text" oninput="filterByName()" placeholder="filter by name" id="namaFilter"> <br><br>
+            Usia : 
+            <input type="number" oninput="filterByUsia()" placeholder="filter by usia min" id="usiaMinFilter">
+            -
+            <input type="number" oninput="filterByUsia()"  placeholder="filter by usia max" id="usiaMaxFilter"> <br><br>
             Pekerjaan : 
-            <select id="pekerjaanFilter">
+            <select id="pekerjaanFilter" onchange="filterByPekerjaan()">
                 <option value="">All</option>
-                <option value="">All</option>
-                <option value="">All</option>
-                <option value="">All</option>
+
             </select>
             <br> <br>
-            <button>Clear filter</button>
+            <button onclick="clearFilter()">Clear filter</button>
         </fieldset>
         <fieldset>
             <legend>Input Data</legend>
@@ -53,6 +54,8 @@
                     </tr>
                 </tbody>
             </table>
+            <br>
+            <button>Submit</button>
         </fieldset>
         <fieldset>
             <legend>Tabel Data</legend>
@@ -66,7 +69,7 @@
                     </tr>
                 </thead>
                 <tbody id="data">
-
+    
                 </tbody>
             </table>
         </fieldset>
