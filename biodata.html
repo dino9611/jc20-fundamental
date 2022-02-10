@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Simple</title>
+    <style>
+        table,tr,td,th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        form{
+            width: 45%;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="./biodata.js" defer></script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Filter</legend>
+            Nama : <input type="text" id="namaFilter"> <br><br>
+            Usia : <input type="number" id="usiaFilter"> <br><br>
+            Pekerjaan : 
+            <select id="pekerjaanFilter">
+                <option value="">All</option>
+                <option value="">All</option>
+                <option value="">All</option>
+                <option value="">All</option>
+            </select>
+            <br> <br>
+            <button>Clear filter</button>
+        </fieldset>
+        <fieldset>
+            <legend>Input Data</legend>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="masukkan nama" id="inputNama">
+                        </td>
+                        <td>
+                            <input type="number" placeholder="masukkan usia" id="inputUsia">
+                        </td>
+                        <td>
+                            <select id="inputPekerjaan">
+
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Tabel Data</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama</th>
+                        <th>Usia</th>
+                        <th>Pekerjaan</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+</body>
+
+</html>
