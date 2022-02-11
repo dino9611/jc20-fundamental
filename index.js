@@ -1,8 +1,8 @@
 let a = 1
 let b = 2
 
-console.log('a',a)
-console.log('b',b)
+// console.log('a',a)
+// console.log('b',b)
 
 // coba dituker hasilnya
 // let temp = a
@@ -134,9 +134,9 @@ const cariIndex =(arr,keyword)=>{
 
 
 
-console.log(cariIndex([15,5,6,89,90,13],5)) // 1
-console.log(cariIndex([15,5,6,89,90,13],13)) // 5
-console.log(cariIndex([15,5,6,89,90,13],16)) // -1
+// console.log(cariIndex([15,5,6,89,90,13],5)) // 1
+// console.log(cariIndex([15,5,6,89,90,13],13)) // 5
+// console.log(cariIndex([15,5,6,89,90,13],16)) // -1
 
 // ada siput didalem sumur sumurnya sedalam 10m
 // dalam sehari siput bisa naik 3 meter dan turun 2 meter
@@ -156,7 +156,7 @@ const siputDiSumur = (sumur,naik,turun)=>{
     
 }
 
-console.log(siputDiSumur(10,3,2))
+// console.log(siputDiSumur(10,3,2))
 // sebuah kota memiliki 10e4 penduduk setiap tahun bertambah 10%
 // berapa jumlah penduduk setelah 5 tahun
 
@@ -167,6 +167,52 @@ const jumlahPenduduk = (awalPend,tahun,persen)=>{
     return awalPend
 }
 
-console.log(jumlahPenduduk(10e4,5,10))
+// console.log(jumlahPenduduk(10e4,5,10))
 
+// let dhika = {
+//     aqil:()=>{
+//        return [
+//             [,
+//                 ()=>{
+//                     return {arta:'daniel'}
+//                 }
+//             ]
+//         ]
+//     }
+// }
+
+
+// console.log(dhika.aqil()[0][1]().arta) // daniel
+
+const ampuh = ()=>{
+    return ()=>{
+        return{
+            dhika:{
+                felix:[
+                    ()=>{
+                        return {
+                            fauzi:'dika'
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
+// console.log(ampuh()()['dhika'].felix[0]().fauzi) // 'dika'
+
+const dhika ={
+    felix:[
+        ,[
+            {
+                fauzi:()=>({
+                    selda:'aqil'
+                })
+                
+            }
+        ]
+    ]
+}
+
+console.log(dhika['felix'][1][0].fauzi().selda)
 
