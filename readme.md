@@ -16,5 +16,12 @@
 - setTimeout : `setTimeout(cb,n)` akan menjalankan callback setelah n milisecond
 - Promise : membuat promise `new Promise((resolve,reject)=>{})`
 
+## teknik berkolaborasi dengan git dan github
+ada beberapa teknik untuk berkolaborasi dengan git da github :
+1. teknik open source
+2. teknik dengan collaborator
+
+
+
 
 
