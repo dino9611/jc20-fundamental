@@ -4,7 +4,11 @@ let arrProduct = [
     { id: 1579581081130,category: 'Electronic' , name: "Headphone", price: 4300000, stock :8 },
     { id: 1579581081342,category: 'Cloth' , name: "Hoodie", price: 300000, stock :7 },
     { id: 1579581081577,category: 'Fruit' , name: "Apple", price: 10000, stock :8 }
-  ];
+];
+
+let indexDel = -1
+let indexEd = -1
+
   
 // init value
 let arrCategory = ["Fast Food", "Electronic", "Cloth", "Fruit"];
@@ -21,7 +25,7 @@ const fnResetFilter = () => {
 
   
   // render list
-const initRender = (data) => {  
+const initRender = () => {  
     let output1 = `<option value="">All</option>`
     let output2 = `<option value="" hidden selected>pilih Pekerjaan</option>`
 
@@ -35,10 +39,58 @@ const initRender = (data) => {
     document.getElementById("catInput").innerHTML = output2;
 };
 
+function generateDefaultCat (category){
+    let output = arrCategory.map((val)=>{
+        if(val === category){
+            return `<option value="${val}" selected>${val}</option>`
+        }
+        return `<option value="${val}" >${val}</option>`
+    })
+
+    return output.join('')
+}
+
 const fnRenderList = (data) => {
     // mapping array of product
-    let listProduct = data.map(val => {
-      // val = {name, age,  job}
+    let listProduct = data.map((val,index) => {
+      // val = {name, price, stock}
+      if(index === indexDel){
+        return (
+            `
+            <tr>
+                <td>${val.id}</td>
+                <td>${val.category}</td>
+                <td>${val.name}</td>
+                <td>${val.price}</td>
+                <td>${val.stock}</td>
+                <td>
+                  <button onclick="yesDelete()">Yes</button>
+                  <button onclick="cancelDelete()">NO</button>
+                </td>
+            </tr>
+            `
+        )
+      }else if(index === indexEd){
+        return (
+            `
+            <tr>
+                <td>${val.id}</td>
+                <td>
+                    <select id="categoryEdit">
+                        ${generateDefaultCat(val.category)}
+                    </select>
+                </td>
+                <td><input type="text" value="${val.name}"  id="nameEdit"> </td>
+                <td><input type="number" value="${val.price}"  id="priceEdit"></td>
+                <td><input type="number" value="${val.stock}"  id="stockEdit"> </td>
+                <td>
+                  <button>Save</button>
+                  <button onclick="cancelEdit()">Cancel</button>
+                </td>
+            </tr>
+            `
+        )
+      }
       return (
           `
           <tr>
@@ -47,6 +99,10 @@ const fnRenderList = (data) => {
               <td>${val.name}</td>
               <td>${val.price}</td>
               <td>${val.stock}</td>
+              <td>
+                <button onclick="confEdit(${index})" >Edit</button>
+                <button onclick="confDelete(${index})">Delete</button>
+              </td>
           </tr>
           `
       )
@@ -162,6 +218,32 @@ const fnFilterCategory = () => {
   
     fnRenderList(filterResult)
 };
-  
+
+const confDelete = (index)=>{
+    indexDel = index
+    fnRenderList(arrProduct)
+}
+
+const cancelDelete = ()=>{
+    indexDel = -1
+    fnRenderList(arrProduct)
+}
+
+const confEdit = (index)=>{
+    indexEd = index
+    fnRenderList(arrProduct)
+}
+
+const cancelEdit = ()=>{
+    indexEd = -1
+    fnRenderList(arrProduct)
+}
+
+const yesDelete=()=>{
+    arrProduct.splice(indexDel,1)
+    indexDel = -1
+    fnRenderList(arrProduct)
+}
+
 
   
