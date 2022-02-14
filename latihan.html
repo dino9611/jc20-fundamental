@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./latihan.js" defer></script>
+    <style>
+        button{
+            background-color: khaki;
+        }
+        button:disabled{
+            background-color: rgb(188, 248, 228);
+        }
+    </style>
+</head>
+<body>
+    <textarea oninput="hitungKomen()" placeholder="tulis aja komentar" id="komentar" cols="50" rows="10"></textarea>
+    <p id="batas">kata: 0/200</p>
+    <p id="kata">kata:0</p>
+    <button disabled>komentar</button>
+</body>
+</html>
