@@ -214,5 +214,25 @@ const dhika ={
     ]
 }
 
-console.log(dhika['felix'][1][0].fauzi().selda)
+// console.log(dhika['felix'][1][0].fauzi().selda)
+
+
+let selda = [
+    ,()=>{
+        return {
+            felix:{
+                arta:()=>{
+                    return ()=>{
+                        return {
+                            dika:'aqil'
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
+
+
+console.log(selda[1]()['felix'].arta()().dika) // aqil
 
