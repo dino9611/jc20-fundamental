@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>VERSION V2.0</title>
+    <title>VERSION V2.1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="./market.js"></script>
    
@@ -59,12 +59,41 @@
                     <th>Nama</th>
                     <th>Price</th>
                     <th>Stock</th>
+                    <th>Buy</th>
                     <th colspan="2">Action</th>
                 </thead>
                 <tbody id="render">
                  
                 </tbody>
             </table>
+        </fieldset>
+        <fieldset>
+            <legend>Cart</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category</th>
+                        <th>Nama</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="carts">
+
+                </tbody>
+            </table>
+            <p id="pay-container">
+
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>payment</legend>
+            <h1>Transaction Detail</h1>
+            <p id="struk"></p>
+            <h4 id="subtotal"></h4>
+            <h4 id="ppn"></h4>
+            <h2 id="total"></h2>
         </fieldset>
     </div>
 </body>

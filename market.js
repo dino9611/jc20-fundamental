@@ -8,7 +8,7 @@ let arrProduct = [
 
 let indexDel = -1
 let indexEd = -1
-
+let carts = [ ]
   
 // init value
 let arrCategory = ["Fast Food", "Electronic", "Cloth", "Fruit"];
@@ -22,6 +22,15 @@ const fnResetFilter = () => {
     document.getElementById("catFilter").value=''
     fnRenderList(arrProduct)
 }   
+
+const convertCurrency = (numb)=>{
+    const formatter = new Intl.NumberFormat('id-ID',{
+        style:'currency',
+        currency:'IDR',
+
+    })
+    return formatter.format(numb) 
+}
 
   
   // render list
@@ -61,8 +70,11 @@ const fnRenderList = (data) => {
                 <td>${val.id}</td>
                 <td>${val.category}</td>
                 <td>${val.name}</td>
-                <td>${val.price}</td>
+                <td>${convertCurrency(val.price) }</td>
                 <td>${val.stock}</td>
+                <td>  
+                    <button onclick="productsBuy(${index})" disabled>buy</button>
+                </td>
                 <td>
                   <button onclick="yesDelete()">Yes</button>
                   <button onclick="cancelDelete()">NO</button>
@@ -83,6 +95,9 @@ const fnRenderList = (data) => {
                 <td><input type="text" value="${val.name}"  id="nameEdit"> </td>
                 <td><input type="number" value="${val.price}"  id="priceEdit"></td>
                 <td><input type="number" value="${val.stock}"  id="stockEdit"> </td>
+                <td>  
+                    <button onclick="productsBuy(${index})" disabled>buy</button>
+                </td>
                 <td>
                   <button>Save</button>
                   <button onclick="cancelEdit()">Cancel</button>
@@ -97,8 +112,11 @@ const fnRenderList = (data) => {
               <td>${val.id}</td>
               <td>${val.category}</td>
               <td>${val.name}</td>
-              <td>${val.price}</td>
+              <td>${convertCurrency(val.price)}</td>
               <td>${val.stock}</td>
+              <td> 
+                <button onclick="productsBuy(${index})" >buy</button>
+              </td>
               <td>
                 <button onclick="confEdit(${index})" >Edit</button>
                 <button onclick="confDelete(${index})">Delete</button>
@@ -112,8 +130,32 @@ const fnRenderList = (data) => {
     document.getElementById("render").innerHTML = listProduct.join("");
 }
 
+const renderCarts = ()=>{
+    let cartsEl = document.getElementById('carts')
+    let output = carts.map((val,index)=>{
+        return `<tr>
+                    <td>${val.id}</td>
+                    <td>${val.category}</td>
+                    <td>${val.name}</td>
+                    <td>${convertCurrency(val.price)}</td>
+                    <td>
+                        <button onclick="onDeleteCart(${index})">Delete</button>
+                    </td>
+                </tr>`
+    })
+
+    cartsEl.innerHTML = output.join('')
+    let paysEl = document.getElementById('pay-container')
+    if(carts.length){
+        paysEl.innerHTML = `<button onclick="payment()">Pay</button>`
+    }else{
+        paysEl.innerHTML = ``
+    }
+}
+
 initRender()
 fnRenderList(arrProduct)
+renderCarts()
   
   // input data
 const fnInputData = () => {
@@ -245,5 +287,41 @@ const yesDelete=()=>{
     fnRenderList(arrProduct)
 }
 
+// buy feature 
+const productsBuy = (index)=>{
+    carts.push(arrProduct[index])
+    renderCarts()
+}
 
-  
+
+const onDeleteCart=(index)=>{
+    carts.splice(index,1)
+    renderCarts()
+}
+
+const payment =()=>{
+    let strukEl = document.getElementById('struk')
+    let subTotalEl = document.getElementById('subtotal')
+    let ppnEL = document.getElementById('ppn')
+    let totalEL = document.getElementById('total')
+
+    let strukOutput = carts.map((val)=>{
+        return `${val.id} | ${val.category} | ${val.name} | ${convertCurrency(val.price)}<br/><br/>`
+    })
+    strukEl.innerHTML = strukOutput.join('')
+
+    // let total = 0
+    // carts.forEach((val)=>{
+    //     total+=val.price
+    // })
+    // cara lain menggunakan reduce
+    let subTotal = carts.reduce((prevVal,currval)=>{
+        return prevVal +currval.price
+    },0)
+    let ppn = subTotal*0.1
+    let grandTotal = subTotal+ppn
+
+    subTotalEl.innerHTML = `SubTotal ${convertCurrency(subTotal)}` 
+    ppnEL.innerHTML = `PPN ${convertCurrency(ppn)}`
+    totalEL.innerHTML=`Grand Total ${convertCurrency(grandTotal)}`
+}
