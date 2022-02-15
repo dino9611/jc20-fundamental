@@ -289,6 +289,7 @@ const yesDelete=()=>{
 
 // buy feature 
 const productsBuy = (index)=>{
+ 
     carts.push(arrProduct[index])
     renderCarts()
 }
