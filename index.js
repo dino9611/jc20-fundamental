@@ -15,8 +15,8 @@ namamu = 'radit'
 let angka= String(10) // 10.toString() 10+''
 angka = Number(angka) // parseInt(angka)
 angka = Boolean(angka)
-console.log(typeof(angka))
-console.log(angka)
+// console.log(typeof(angka))
+// console.log(angka)
 
 // [],{} truthy value
 // [].length falsy karena [].length hasilnya 0, dan 0 adalah falsy
@@ -132,8 +132,8 @@ let a = [1,2,3,4,5]
 //     output.push(data)
 // }
 let output = a.map((val)=>val*2)
-console.log(output)
-console.log(a)
+// console.log(output)
+// console.log(a)
 
 // object
 // object , semua yang ada di javascript adalah object. objct
@@ -168,8 +168,8 @@ let hitungKoin = (uang)=>{
 
 
 
-console.log(hitungKoin(51)) // 3
-console.log(hitungKoin(70)) // 4
+// console.log(hitungKoin(51)) // 3
+// console.log(hitungKoin(70)) // 4
 
 
 let users =[
@@ -180,7 +180,6 @@ let users =[
             {nama:'tes2',diskon:10},
             {nama:'tes3',diskon:0},
             {nama:'tes4',diskon:0},
-
         ]
     },
     {
@@ -194,12 +193,74 @@ let users =[
     },
 ]
 
-const cariUserDiskon =()=>{
+const cariUserDiskon =(username)=>{
+    // cara pake filter
+    // cari objectnya dulu
+    // let data = users.filter((val)=>val.username === username)
+    // console.log(data[0])
+    // cara pake find
+    // return valuenya sendiri, yang ditemukan pertama kali
+    let data =users.find((val)=>val.username === username)
+    // let output = false
+    // cara foreach
+    // data.carts.forEach((val)=>{
+    //     if(val.diskon>0){
+    //         output = true
+    //     }
+    // })
+    // return output
+
+    // cara filter
+    // let hasil=data.carts.filter((val)=>{
+    //     return val.diskon >0
+    // })
+    // return hasil.length ? true : false
+
+    output = data.carts.some((val)=> val.diskon >0)
+    return output
 
 }
 
 console.log(cariUserDiskon('user1')) // true
 console.log(cariUserDiskon('user2')) // false
+
+const hitung = (numb)=>{
+    // let hasil = numb % 10 //1
+    let hitungan = 1
+    let output = 0
+    do {
+        let ujung = numb % 10
+        if(hitungan % 2 == 1){
+            output+=ujung
+        }
+        hitungan++
+        numb = Math.floor((numb - ujung)/10) // (2341-1)/10= 234
+    } while (numb > 0);
+    return output
+}
+
+const hitungDigit = (numb)=>{
+    let hitungan =0 
+    do {
+        let ujung = numb % 10
+        numb = Math.floor((numb - ujung)/10) 
+        hitungan++
+    } while (numb>0);
+    return hitungan
+}
+
+console.log(hitung(234135)) // 3+1= 4
+console.log(hitungDigit(21393)) // 5
+// pagination
+// [1,2,3,4,5,6,7] page 1-5
+// [4,5,6,7,8] 6 dst
+
+const pages = (currPage)=>{
+
+}
+
+console.log(pages(5))// [1,2,3,4,'5',6,7]
+console.log(pages(6))// [4,5,"6",7,8]
 
 
 

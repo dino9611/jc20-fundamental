@@ -138,6 +138,7 @@ const renderCarts = ()=>{
                     <td>${val.category}</td>
                     <td>${val.name}</td>
                     <td>${convertCurrency(val.price)}</td>
+                    <td>${val.qty}</td>
                     <td>
                         <button onclick="onDeleteCart(${index})">Delete</button>
                     </td>
@@ -289,8 +290,24 @@ const yesDelete=()=>{
 
 // buy feature 
 const productsBuy = (index)=>{
- 
-    carts.push(arrProduct[index])
+    // cari apakah barang/products dengan id x, ada atau tidak didalam carts
+    let indCart = carts.findIndex((val)=>val.id === arrProduct[index].id)
+    // -1 jika tidak ketemu datanya 
+    // indexnya jika ketemu
+    if(indCart <0){
+
+        let data = {...arrProduct[index],qty:1}
+        // let data = arrProduct[index]
+        // data.qty = 1
+        carts.push(data)
+        // console.log(carts)
+        
+    }else{
+        carts[indCart].qty++
+        // carts[indCart].qty+=1
+        // carts[indCart].qty = carts[indCart].qty +1
+        // carts[indCart] = {...carts[indCart],qty:carts[indCart].qty++}
+    }
     renderCarts()
 }
 
@@ -307,7 +324,7 @@ const payment =()=>{
     let totalEL = document.getElementById('total')
 
     let strukOutput = carts.map((val)=>{
-        return `${val.id} | ${val.category} | ${val.name} | ${convertCurrency(val.price)}<br/><br/>`
+        return `${val.id} | ${val.category} | ${val.name} | ${val.qty} X ${convertCurrency(val.price)} = ${convertCurrency(val.price*val.qty)} <br/><br/>`
     })
     strukEl.innerHTML = strukOutput.join('')
 
@@ -317,7 +334,7 @@ const payment =()=>{
     // })
     // cara lain menggunakan reduce
     let subTotal = carts.reduce((prevVal,currval)=>{
-        return prevVal +currval.price
+        return prevVal + (currval.price*currval.qty)
     },0)
     
     let ppn = subTotal*0.1
