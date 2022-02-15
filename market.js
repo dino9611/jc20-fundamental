@@ -318,6 +318,7 @@ const payment =()=>{
     let subTotal = carts.reduce((prevVal,currval)=>{
         return prevVal +currval.price
     },0)
+    
     let ppn = subTotal*0.1
     let grandTotal = subTotal+ppn
 
