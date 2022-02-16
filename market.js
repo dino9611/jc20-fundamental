@@ -73,7 +73,7 @@ const fnRenderList = (data) => {
                 <td>${convertCurrency(val.price) }</td>
                 <td>${val.stock}</td>
                 <td>  
-                    <button onclick="productsBuy(${index})" disabled>buy</button>
+                    <button onclick="productsBuy(${val.id})" disabled>buy</button>
                 </td>
                 <td>
                   <button onclick="yesDelete()">Yes</button>
@@ -96,7 +96,7 @@ const fnRenderList = (data) => {
                 <td><input type="number" value="${val.price}"  id="priceEdit"></td>
                 <td><input type="number" value="${val.stock}"  id="stockEdit"> </td>
                 <td>  
-                    <button onclick="productsBuy(${index})" disabled>buy</button>
+                    <button onclick="productsBuy(${val.id})" disabled>buy</button>
                 </td>
                 <td>
                   <button>Save</button>
@@ -115,7 +115,7 @@ const fnRenderList = (data) => {
               <td>${convertCurrency(val.price)}</td>
               <td>${val.stock}</td>
               <td> 
-                <button onclick="productsBuy(${index})" >buy</button>
+                <button onclick="productsBuy(${val.id})" >buy</button>
               </td>
               <td>
                 <button onclick="confEdit(${index})" >Edit</button>
@@ -289,9 +289,13 @@ const yesDelete=()=>{
 }
 
 // buy feature 
-const productsBuy = (index)=>{
+const productsBuy = (id)=>{
     // cari apakah barang/products dengan id x, ada atau tidak didalam carts
-    let indCart = carts.findIndex((val)=>val.id === arrProduct[index].id)
+    let indCart = carts.findIndex((val)=>val.id === id)
+    // cari barang yang dimaksud dengan id dari parameter(id parameter adalah id dari barnag yang ada di cart)
+    let index = arrProduct.findIndex((val)=>val.id === id)
+    // kurangin stock
+    arrProduct[index].stock--
     // -1 jika tidak ketemu datanya 
     // indexnya jika ketemu
     if(indCart <0){
@@ -309,12 +313,18 @@ const productsBuy = (index)=>{
         // carts[indCart] = {...carts[indCart],qty:carts[indCart].qty++}
     }
     renderCarts()
+    fnRenderList(arrProduct)
 }
 
 
 const onDeleteCart=(index)=>{
+    // cari index prodcuts dari data id product yang di carts
+    let indexProd = arrProduct.findIndex((val)=>val.id === carts[index].id)
+    // tambah stock dengan qty dari carts yang akan dihapus
+    arrProduct[indexProd].stock+=carts[index].qty
     carts.splice(index,1)
     renderCarts()
+    fnRenderList(arrProduct)
 }
 
 const payment =()=>{
